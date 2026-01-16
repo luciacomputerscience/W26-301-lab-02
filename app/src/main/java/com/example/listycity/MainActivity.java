@@ -1,10 +1,15 @@
 package com.example.listycity;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -40,5 +45,36 @@ public class MainActivity extends AppCompatActivity {
 
         cityAdapter = new ArrayAdapter<>(this, R.layout.content, dataList);
         cityList.setAdapter(cityAdapter);
+
+        Button add_btn = findViewById(R.id.add_btn);
+        Button del_btn = findViewById(R.id.del_btn);
+
+        add_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addCity();
+
+                Toast myToast = Toast.makeText(MainActivity.this, "You Added Something!", Toast.LENGTH_SHORT);
+                myToast.show();
+            }
+        });
+
+        del_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                delCity();
+
+                Toast myToast = Toast.makeText(MainActivity.this, "You Deleted Something!", Toast.LENGTH_SHORT);
+                myToast.show();
+            }
+        });
+    }
+
+    public void addCity() {
+
+    }
+
+    public void delCity() {
+
     }
 }
